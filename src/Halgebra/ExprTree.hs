@@ -1,6 +1,7 @@
 module Halgebra.ExprTree (parseTree, evalExpression, leaf) where
 
 import Data.Tree
+import Control.Applicative
 --import Debug.Trace
 
 
@@ -26,7 +27,7 @@ parseTerm "*" = Term "*" product
 parseTerm a = Term a (\_ -> read a)
 
 parseTerms :: String -> Tree Term
-parseTerms a = fmap parseTerm $ parseTree a
+parseTerms a = parseTerm <$> parseTree a
 
 leaf :: a -> Tree a
 leaf a = Node a [] 
