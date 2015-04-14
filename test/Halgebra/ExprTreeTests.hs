@@ -20,4 +20,4 @@ test_evalTree = do
                 assertEqual 3 $ evalExpression "+ 3"
                 assertEqual 3 $ evalExpression "+ 1 2"
                 assertEqual 8 $ evalExpression "+ 1 ( 5 ) 2"
-                assertEqual 12 $ evalExpression "+ 1 ( + 5 ( + 1 3 ) ) 2"
+                assertEqual 10 $ evalExpression "+ 1 ( + 5 ( + -1 3 ) ) 2"
