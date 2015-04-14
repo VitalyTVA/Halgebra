@@ -1,7 +1,7 @@
 import HalgebraTests
 import Utils.Helpers
 import Halgebra.ExprTree
---import Data.Text
+import Data.Tree
 
 {-
 indicate :: String -> String
@@ -10,9 +10,11 @@ indicate address =
 -}
 
 
-main = mainTests
+main = mainRun >> mainTests
 
 mainRun = do
+        putStrLn $ drawTree simpleTree
+        putStrLn $ drawForest $ subForest simpleTree
         print $ take 20 myPrimes2
         print $ replicate 3 "127.1.0.0"
         print (show (simpleSum 4))

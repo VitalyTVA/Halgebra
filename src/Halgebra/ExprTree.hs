@@ -1,5 +1,8 @@
 module Halgebra.ExprTree where
 
-myPrimes2 :: (Integral a) => [a]
-myPrimes2 = 2 : (filter isPrime [3,5 ..])
-                where isPrime = \a -> all (\x -> a `mod` x /= 0) $ takeWhile (\x -> x * x <= a) myPrimes2
+import Data.Tree
+import Utils.Helpers
+
+simpleTree = Node "A" [Node "B" [], Node "C" [Node "D" [], Node "E" []]]
+
+myPrimes2 = myPrimes

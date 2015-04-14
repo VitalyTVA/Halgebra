@@ -1,7 +1,7 @@
 module Utils.Helpers where
 
 myPrimes :: (Integral a) => [a]
-myPrimes = 2 : (filter isPrime [3,5 ..])
+myPrimes = 2 : filter isPrime [3, 5 ..]
                 where isPrime = \a -> all (\x -> a `mod` x /= 0) $ takeWhile (\x -> x * x <= a) myPrimes
 
 hello user = "Hi, " ++ user
