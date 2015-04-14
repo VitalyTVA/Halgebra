@@ -10,11 +10,10 @@ cabal-version:  >=1.8
 executable Halgebra
   main-is:         Main.hs
   other-modules:
-                  RealTests,
                   Helpers,
                   Utils.Helpers,
                   Utils.HelpersTest,
-                  Halgebra.ExprTree
+                  Halgebra.ExprTree,
                   Halgebra.ExprTreeTests
   build-depends:   base >= 4, HTF > 0.9
   hs-source-dirs:  
