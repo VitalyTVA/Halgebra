@@ -8,7 +8,7 @@ type EvalResult = Integer
 
 data Term = Term { 
         name :: String,
-        eval :: [Term] -> EvalResult
+        eval :: [EvalResult] -> EvalResult
         }
         
 instance Show Term where
@@ -18,10 +18,10 @@ evalExpression :: String -> EvalResult
 evalExpression = evalTree.parseTerms
 
 evalTree :: Tree Term -> EvalResult
-evalTree (Node t _) = (eval t) []--(fmap rootLabel ts)   
+evalTree (Node t ts) = (eval t) (fmap evalTree ts)   
 
 parseTerm :: String -> Term
---parseTerm "+" = Term "+" (\_ -> 1)
+parseTerm "+" = Term "+" (\x -> sum x)
 parseTerm a = Term a (\_ -> read a)
 
 parseTerms :: String -> Tree Term
