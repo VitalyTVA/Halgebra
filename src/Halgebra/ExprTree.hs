@@ -9,5 +9,11 @@ node :: a -> [a] -> Tree a
 node a ts = Node a $ fmap leaf ts
 
 parseTree :: String -> Tree String
-parseTree a = node (head ws) (tail ws)
-                where ws = words a
+parseTree a = parseTreeCore $ words a
+                
+parseTreeCore :: [String] -> Tree String
+parseTreeCore (x:xs) = Node x $ parseForest xs
+parseTreeCore _ = error "No leaf"
+
+parseForest :: [String] -> Forest String
+parseForest a = fmap leaf a
