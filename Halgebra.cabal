@@ -1,0 +1,37 @@
+name:           Halgebra
+version:        0.1.0.0
+synopsis:       Halgebra project in Haskell
+license-file:   LICENSE
+author:         VitalyTVA
+maintainer:     vitalytva@yandex.ru
+build-type:     Simple
+cabal-version:  >=1.8
+
+executable Halgebra
+  main-is:         Main.hs
+  other-modules:
+                  RealTests,
+                  Helpers,
+                  Utils.Helpers,
+                  Utils.HelpersTest
+  build-depends:   base >= 4, HTF > 0.9
+  hs-source-dirs:  
+                  test,
+                  src/Utils,
+                  src
+  ghc-options:     -W
+
+test-suite HalgebraTests
+  type:            exitcode-stdio-1.0
+  main-is:         RealTests.hs
+  ghc-options:     -Wall -rtsopts
+  build-depends:   base >= 4, HTF > 0.9
+  other-modules:   
+                  Helpers,
+                  Utils.Helpers,
+                  Utils.HelpersTest
+  hs-source-dirs:  
+                  test,
+                  src/Utils,
+                  src
+
