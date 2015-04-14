@@ -18,10 +18,11 @@ evalExpression :: String -> EvalResult
 evalExpression = evalTree.parseTerms
 
 evalTree :: Tree Term -> EvalResult
-evalTree (Node x xs) = (eval x) $ fmap evalTree xs
+evalTree (Node x xs) = eval x $ fmap evalTree xs
 
 parseTerm :: String -> Term
 parseTerm "+" = Term "+" sum
+parseTerm "*" = Term "*" product
 parseTerm a = Term a (\_ -> read a)
 
 parseTerms :: String -> Tree Term
