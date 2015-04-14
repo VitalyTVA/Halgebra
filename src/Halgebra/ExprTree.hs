@@ -12,8 +12,10 @@ parseTree :: String -> Tree String
 parseTree a = parseTreeCore $ words a
                 
 parseTreeCore :: [String] -> Tree String
-parseTreeCore (x:xs) = Node x $ parseForest xs
+parseTreeCore (x:xs) = Node x (snd (parseForest (xs, [])))
 parseTreeCore _ = error "No leaf"
 
-parseForest :: [String] -> Forest String
-parseForest a = fmap leaf a
+parseForest :: ([String], Forest String) -> ([String], Forest String)
+parseForest ([], forest) = ([], forest)
+parseForest ([x], forest) = ([], (forest ++ [(leaf x)]))
+parseForest ((x:xs), forest) = parseForest (xs, (forest ++ [(leaf x)]))
