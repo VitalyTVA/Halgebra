@@ -1,8 +1,8 @@
-{-# OPTIONS_GHC -F -pgmF htfpp #-}
+{-# OPTIONS_GHC -F -pgmF htfpp -fno-warn-type-defaults -fno-warn-missing-signatures #-}
 module Utils.HelpersTest where
-import Utils.Helpers
-import Control.Exception
-import Test.Framework
+import           Control.Exception
+import           Test.Framework
+import           Utils.Helpers
 {-# ANN module "HLint: ignore Use camelCase" #-}
 
 test_nonEmpty = do assertEqual [1] (myReverse [1])
@@ -25,7 +25,7 @@ test_myLast = do assertEqual 3 (myLast [1,2,3])
 test_myLastButOne = do assertEqual 2 $ myLastButOne [1,2,3]
                        assertThrows (myLastButOne [1]) $ handleExc "List has only one element."
                        assertThrows (myLastButOne []) $ handleExc "List is empty."
-                                           
+
 test_myElementAt = do   assertEqual 3 $ myElementAt [1,2,3] 2
                         assertEqual 1 $ myElementAt [1,2,3] 0
                         assertEqual 1 $ myElementAt [1] 0

@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -F -pgmF htfpp #-}
+{-# OPTIONS_GHC -F -pgmF htfpp -fno-warn-type-defaults -fno-warn-missing-signatures #-}
 module Halgebra.ExprTreeTests where
 import Halgebra.ExprTree
 import Test.Framework

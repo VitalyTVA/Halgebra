@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 import HalgebraTests
 import Utils.Helpers
 import Halgebra.ExprTree

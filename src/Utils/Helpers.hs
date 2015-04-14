@@ -4,7 +4,6 @@ myPrimes :: (Integral a) => [a]
 myPrimes = 2 : filter isPrime [3, 5 ..]
                 where isPrime a = all (\ x -> a `mod` x /= 0) $ takeWhile (\ x -> x * x <= a) myPrimes
 
-hello user = "Hi, " ++ user
 
 simpleSum :: Int -> Int
 simpleSum x = x + x
