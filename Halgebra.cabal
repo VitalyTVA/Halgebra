@@ -15,6 +15,7 @@ executable Halgebra
                   Utils.Helpers,
                   Utils.HelpersTest,
                   Halgebra.ExprTree
+                  Halgebra.ExprTreeTests
   build-depends:   base >= 4, HTF > 0.9
   hs-source-dirs:  
                   test,

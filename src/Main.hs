@@ -1,4 +1,4 @@
-import RealTests
+import HalgebraTests
 import Utils.Helpers
 import Halgebra.ExprTree
 --import Data.Text
