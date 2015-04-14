@@ -13,10 +13,12 @@ executable Halgebra
                   RealTests,
                   Helpers,
                   Utils.Helpers,
-                  Utils.HelpersTest
+                  Utils.HelpersTest,
+                  Halgebra.ExprTree
   build-depends:   base >= 4, HTF > 0.9
   hs-source-dirs:  
                   test,
                   src/Utils,
+                  src/Halgebra,
                   src
   ghc-options:     -W
