@@ -7,6 +7,9 @@ import Data.Tree
 
 
 test_parseTree = do
-                assertEqual (parseTree "x") (leaf "x")
-                assertEqual (parseTree "x a") (Node "x" [leaf "a"])
-                assertEqual (parseTree "xx aa bb") (Node "xx" [leaf "aa", leaf "bb"])
+                assertEqual (leaf "x") (parseTree "x") 
+                assertEqual (Node "x" [leaf "a"]) (parseTree "x a")
+                assertEqual (Node "xx" [leaf "aa", leaf "bb"]) (parseTree "xx aa bb")
+                assertEqual (Node "xx" [Node "aa" [leaf "bb"], leaf "cc"]) (parseTree "xx ( aa bb ) cc")
+                assertEqual (Node "xx" [Node "aa" [leaf "bb"]]) (parseTree "xx ( aa bb )")
+                assertEqual (Node "xx" [leaf "ee", Node "aa" [leaf "dd", Node "bb" [leaf "ff"]], leaf "cc"]) (parseTree "xx ee ( aa dd ( bb ff ) ) cc")

@@ -1,6 +1,7 @@
 module Halgebra.ExprTree (parseTree, leaf) where
 
 import Data.Tree
+import Debug.Trace
 
 leaf :: a -> Tree a
 leaf a = Node a []
@@ -18,6 +19,7 @@ parseTreeCore _ = error "No leaf"
 
 parseForest :: ([String], Forest String) -> ([String], Forest String)
 parseForest ([], forest) = ([], forest)
+parseForest ([")"], forest) = ([], forest)
 parseForest ([x], forest) = ([], (forest ++ [(leaf x)]))
 parseForest ((")":xs), forest) = (xs, forest)
 parseForest (("(":xs), forest) = parseForest (fst tree, (forest ++ [snd tree]))
