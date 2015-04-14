@@ -2,6 +2,10 @@
 module Halgebra.ExprTreeTests where
 import Halgebra.ExprTree
 import Test.Framework
+import Data.Tree
 {-# ANN module "HLint: ignore Use camelCase" #-}
 
-test_primes2 = assertEqual [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71] $ take 20 myPrimes2
+
+test_parseTree = do
+                assertEqual (parseTree "x") (leaf "x")
+                assertEqual (parseTree "x a") (Node "x" [leaf "a"])

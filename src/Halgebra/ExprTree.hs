@@ -1,7 +1,9 @@
 module Halgebra.ExprTree where
 
---import Data.Tree
-import Utils.Helpers
+import Data.Tree
 
-myPrimes2 :: [Integer]
-myPrimes2 = myPrimes
+leaf :: a -> Tree a
+leaf a = Node a []
+
+parseTree :: String -> Tree String
+parseTree a = leaf a 
