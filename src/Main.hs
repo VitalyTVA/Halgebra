@@ -12,6 +12,8 @@ indicate address =
 
 main = mainRun >> mainTests
 
+simpleTree = Node "A" [Node "B" [], Node "C" [Node "D" [], Node "E" []]]
+
 mainRun = do
         putStrLn $ drawTree simpleTree
         putStrLn $ drawForest $ subForest simpleTree
