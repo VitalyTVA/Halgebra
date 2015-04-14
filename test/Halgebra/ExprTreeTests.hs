@@ -9,3 +9,4 @@ import Data.Tree
 test_parseTree = do
                 assertEqual (parseTree "x") (leaf "x")
                 assertEqual (parseTree "x a") (Node "x" [leaf "a"])
+                assertEqual (parseTree "xx aa bb") (Node "xx" [leaf "aa", leaf "bb"])

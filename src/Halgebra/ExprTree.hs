@@ -1,18 +1,19 @@
-module Halgebra.ExprTree where
+module Halgebra.ExprTree (parseTree, leaf) where
 
 import Data.Tree
 
 leaf :: a -> Tree a
 leaf a = Node a []
 
-node :: a -> [a] -> Tree a
-node a ts = Node a $ fmap leaf ts
+--node :: a -> [a] -> Tree a
+--node a ts = Node a $ fmap leaf ts
 
 parseTree :: String -> Tree String
-parseTree a = parseTreeCore $ words a
+parseTree a = snd (parseTreeCore $ words a)
                 
-parseTreeCore :: [String] -> Tree String
-parseTreeCore (x:xs) = Node x (snd (parseForest (xs, [])))
+parseTreeCore :: [String] -> ([String], Tree String)
+parseTreeCore (x:xs) = ((fst forest), Node x (snd forest))
+                        where forest = parseForest (xs, []) 
 parseTreeCore _ = error "No leaf"
 
 parseForest :: ([String], Forest String) -> ([String], Forest String)
