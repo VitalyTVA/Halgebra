@@ -20,18 +20,3 @@ executable Halgebra
                   src/Utils,
                   src
   ghc-options:     -W
-
-test-suite HalgebraTests
-  type:            exitcode-stdio-1.0
-  main-is:         RealTests.hs
-  ghc-options:     -Wall -rtsopts
-  build-depends:   base >= 4, HTF > 0.9
-  other-modules:   
-                  Helpers,
-                  Utils.Helpers,
-                  Utils.HelpersTest
-  hs-source-dirs:  
-                  test,
-                  src/Utils,
-                  src
-
