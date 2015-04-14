@@ -9,6 +9,7 @@ cabal-version:  >=1.8
 
 executable Halgebra
   main-is:         Main.hs
+  ghc-options:     -Wall -rtsopts -O0
   other-modules:
                   Helpers,
                   Utils.Helpers,
