@@ -19,4 +19,7 @@ parseTreeCore _ = error "No leaf"
 parseForest :: ([String], Forest String) -> ([String], Forest String)
 parseForest ([], forest) = ([], forest)
 parseForest ([x], forest) = ([], (forest ++ [(leaf x)]))
+parseForest ((")":xs), forest) = (xs, forest)
+parseForest (("(":xs), forest) = parseForest (fst tree, (forest ++ [snd tree]))
+                        where tree = parseTreeCore xs
 parseForest ((x:xs), forest) = parseForest (xs, (forest ++ [(leaf x)]))
