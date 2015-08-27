@@ -1,0 +1,3 @@
+# Halgebra
+
+Haskell test project
